@@ -1,1 +1,1 @@
-# beautify-jade
+# Jade beautifier
