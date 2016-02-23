@@ -25,7 +25,7 @@ module.exports = function(code, opt) {
         // when tab and space mixed, it replace all tab to spaces.
         var tmp = data[0].replace(/\t/g, Array(tab_size + 1).join(' '));
         var remainedInput = data.input.replace(/^\s*/, '');
-        var indent = (remainedInput.length === 0) debug? 0 : tmp.length;
+        var indent = (remainedInput.length === 0) ? 0 : tmp.length;
 
         var tab = 0;
         var type = (remainedInput.match(/^\/\/|^\/\*|^\*/)) ? 'remark' : 'code';

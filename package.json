@@ -9,6 +9,7 @@
     "beautify",
     "formatter"
   ],
+  "scripts":{"test": "mocha"},
   "repository": "https://github.com/vingorius/pug-beautify.git",
   "license": "MIT",
   "dependencies": {}
