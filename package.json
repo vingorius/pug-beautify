@@ -1,6 +1,6 @@
 {
   "name": "pug-beautify",
-  "main": "./pug-beautify",
+  "main": "index",
   "version": "0.0.1",
   "description": "Simple Pug(Jade) Beautifier",
   "keywords": [
