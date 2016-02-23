@@ -1,14 +1,15 @@
 {
-  "name": "jade-beautifier",
-  "main": "./jade-beautifier",
+  "name": "pug-beautify",
+  "main": "./pug-beautify",
   "version": "0.0.1",
-  "description": "Simple Jade Beautifier",
+  "description": "Simple Pug(Jade) Beautifier",
   "keywords": [
     "jade",
+    "pug",
     "beautify",
     "formatter"
   ],
-  "repository": "https://github.com/vingorius/pug-beautifyr.git",
+  "repository": "https://github.com/vingorius/pug-beautify.git",
   "license": "MIT",
   "dependencies": {}
 }
