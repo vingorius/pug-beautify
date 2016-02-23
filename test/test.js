@@ -5,6 +5,18 @@ var ENC = 'utf8';
 var before_file_name = './test/before/test.jade';
 
 describe('jadeBeautifier', function() {
+    it('should throw error when code is not a string', function() {
+        assert.throws(function() {
+            jadeBeautifier({});
+        }, Error,'it must throw error.');
+    });
+
+    it('should throw error when option is not a object', function() {
+        assert.throws(function() {
+            jadeBeautifier('','');
+        }, Error,'it must throw error.');
+    });
+
     it('should equal when default option', function(done) {
         var option = {
             fill_tab: true,

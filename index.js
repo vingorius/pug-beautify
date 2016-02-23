@@ -1,6 +1,8 @@
 module.exports = function(code, opt) {
-    code = code || '';
+    if (typeof code !== 'string') throw new Error('Code must be a string text.');
+    if (typeof opt !== 'object') throw new Error('Option must be a object.');
     opt = opt || {};
+
     var fill_tab = opt.fill_tab || true;
     var omit_div = opt.omit_div || false;
     var tab_size = opt.tab_size || 4;
