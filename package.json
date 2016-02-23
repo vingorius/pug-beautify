@@ -8,7 +8,7 @@
     "beautify",
     "formatter"
   ],
-  "repository": "https://github.com/vingorius/jade-beautifier.git",
+  "repository": "https://github.com/vingorius/pug-beautifyr.git",
   "license": "MIT",
   "dependencies": {}
 }
