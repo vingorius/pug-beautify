@@ -1,0 +1,14 @@
+{
+  "name": "jade-beautifier",
+  "main": "./jade-beautifier",
+  "version": "0.0.1",
+  "description": "Simple Jade Beautifier",
+  "keywords": [
+    "jade",
+    "beautify",
+    "formatter"
+  ],
+  "repository": "https://github.com/vingorius/jade-beautifier.git",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,0 +1,24 @@
+https://discuss.atom.io/t/load-developing-package/2554
+
+1. apm develop <package_name>
+2. cd ~/.atom/dev/packages/<package_name>
+3. atom -d
+
+1번은 해당 패키지를 ~/github/ 밑에 clone하고,  ~/.atom/dev/packages/<package_name> 에 링크를 건다.
+2번으로 해당 패키지로 이동한 다음.
+3번으로 개발 모드를 atom을 연다.
+
+개발이 완료되면 publish한다.
+git add ./
+git commit -m "fix #6"
+apm publish patch
+
+//패키지 유지관리 방법 문서
+https://atom.io/docs/v1.4.1/behind-atom-maintaining-your-packages
+
+publishing 취소
+apm unpublish package-name@1.2.3
+
+
+// Atom API
+https://atom.io/docs/api/v1.4.1/AtomEnvironment
