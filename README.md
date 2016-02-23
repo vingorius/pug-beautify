@@ -1,1 +1,1 @@
-# Jade beautifier
+# Pug(Jade) beautifier
