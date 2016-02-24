@@ -1,13 +1,16 @@
 module.exports = function(code, opt) {
+    opt = (typeof opt === 'undefined') ? {} : opt;
     if (typeof code !== 'string') throw new Error('Code must be a string text.');
-    if (typeof opt !== 'object') throw new Error('Option must be a object.');
-    opt = opt || {};
+    if (typeof opt !== 'undefined' && typeof opt !== 'object') throw new Error('Option must be a object.');
 
-    var fill_tab = opt.fill_tab || true;
-    var omit_div = opt.omit_div || false;
-    var tab_size = opt.tab_size || 4;
-    var debug = opt.debug || false;
+    var fill_tab = (typeof opt.fill_tab !== 'undefined') ? opt.fill_tab : true;
+    var omit_div = (typeof opt.omit_div !== 'undefined') ? opt.omit_div : false;
+    var tab_size = (typeof opt.tab_size !== 'undefined') ? opt.tab_size : 4;
+    var debug = (typeof opt.debug !== 'undefined') ? opt.debug : false;
 
+    if (debug) console.log(fill_tab, omit_div, tab_size, debug);
+
+    // list of indents
     var indentList = [];
 
     var prevIndent = {
@@ -19,8 +22,7 @@ module.exports = function(code, opt) {
 
     var lines = code.split('\n');
 
-    lines.forEach(function(line, n) {
-        // for (var n = 0; n < lines.length; n++) {
+    lines.forEach(function(line, n) { // array.forEach is blocking, no async function.
         // it return matching space --> data[0], data[index] = 0, remained input --> data.input
         var data = line.match(/^\s*/);
 
@@ -40,7 +42,7 @@ module.exports = function(code, opt) {
             tab = 0;
         } else {
             // when this line & prev line is 'remark', it fallow prev line tab.
-            if (indentList.length > 0 && type === 'remark' && indentList[indentList.length - 1].type == 'remark') {
+            if (indentList.length > 0 && type === 'remark' && indentList[indentList.length - 1].type === 'remark') {
                 tab = prevIndent.tab;
             } else {
                 if (indent === prevIndent.indent) { // when same indent, follow prev tab.

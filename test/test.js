@@ -1,23 +1,28 @@
-var jadeBeautifier = require('../index');
+var pugBeautify = require('../index');
 var assert = require('assert');
 var fs = require('fs');
 var ENC = 'utf8';
 var before_file_name = './test/before/test.jade';
 
-describe('jadeBeautifier', function() {
+describe('pugBeautify', function() {
     it('should throw error when code is not a string', function() {
         assert.throws(function() {
-            jadeBeautifier({});
-        }, Error,'it must throw error.');
+            pugBeautify({});
+        }, Error, 'it must throw error.');
+    });
+
+    it('should be ok when no option', function() {
+        pugBeautify('...');
+        assert.ok(true);
     });
 
     it('should throw error when option is not a object', function() {
         assert.throws(function() {
-            jadeBeautifier('','');
-        }, Error,'it must throw error.');
+            pugBeautify('', '');
+        }, Error, 'it must throw error.');
     });
 
-    it('should equal when default option', function(done) {
+    it('should equal when default option', function() {
         var option = {
             fill_tab: true,
             omit_div: false,
@@ -25,13 +30,21 @@ describe('jadeBeautifier', function() {
         };
         var after_file_name = './test/after/test_true_false_4.jade';
 
-        fs.readFile(before_file_name, ENC, function(err, before) {
-            if (err) throw err;
-            fs.readFile(after_file_name, ENC, function(err, after) {
-                if (err) throw err;
-                assert.equal(after, jadeBeautifier(before, option));
-                done();
-            });
-        });
+        var before = fs.readFileSync(before_file_name,ENC);
+        var after = fs.readFileSync(after_file_name,ENC);
+        assert.equal(after, pugBeautify(before, option));
+    });
+
+    it('should work when fill_tab=false,omit_div=true,tab_size=2', function() {
+        var option = {
+            fill_tab: false,
+            omit_div: true,
+            tab_size: 2
+        };
+        var after_file_name = './test/after/test_false_true_2.jade';
+
+        var before = fs.readFileSync(before_file_name,ENC);
+        var after = fs.readFileSync(after_file_name,ENC);
+        assert.equal(after, pugBeautify(before, option));
     });
 });
