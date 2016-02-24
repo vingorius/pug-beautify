@@ -1,5 +1,5 @@
 # Pug(former jade) beautify
-    This tiny program is format a pug(former jade) template file.
+    This tiny program is formatting a pug(former jade) template file.
     For reusability, it's made as a module suggested by @Glaving001
     https://github.com/vingorius/jade-beautify/issues/7
 ## Installation
