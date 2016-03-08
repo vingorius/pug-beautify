@@ -1,7 +1,8 @@
 # Pug(former jade) beautify
 This tiny program format a pug(former jade) template file.
-For reusability, it's made as a module suggested by @Glavin001.
+For reusability, it's made as a module suggested by [@Glavin001](https://github.com/Glavin001).
 Please refer [this issue](https://github.com/vingorius/jade-beautify/issues/7).
+
 ## Installation
 ```shell
 npm install pug-beautify
