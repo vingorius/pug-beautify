@@ -10,6 +10,7 @@
  * @param  {boolean} opt.omit_div - whether omit 'div' tag, default false.
  * @param  {number} opt.tab_size - when 'fill_tab' is false, fill 'tab_size' spaces, default 4.
  * @param  {boolean} opt.separator_space - When 'separator_space' is true, the attribute separator is comma, default true.
+ * @param  {boolean} opt.omit_empty_lines - When 'separator_space' is false, delete line blank, default true.
  * @return {string} code - strings beautified.
  */
 
@@ -23,7 +24,8 @@ module.exports = function(code, opt) {
   var fill_tab = (typeof opt.fill_tab !== 'undefined') ? opt.fill_tab : true;
   var omit_div = (typeof opt.omit_div !== 'undefined') ? opt.omit_div : false;
   var tab_size = (typeof opt.tab_size !== 'undefined') ? opt.tab_size : 4;
-  var separator = opt.separator_space  ? ' ' : ', ';
+  var separator = opt.separator_space ? ' ' : ', ';
+  var empty_lines = (typeof opt.omit_empty_lines !== 'undefined') ? opt.omit_empty_lines : true;
   var debug = (typeof opt.debug !== 'undefined') ? opt.debug : false;
 
   if (debug) console.log(fill_tab, omit_div, tab_size, debug, separator);
@@ -37,6 +39,10 @@ module.exports = function(code, opt) {
     tab: 0, // count of tab ,line indent will be filled up with this value.
     input: '', // input line after removing indent.
   };
+
+  if (!empty_lines) {
+    code = code.replace(/^\s*[\r\n]/gm, '');
+  }
 
   var lines = code.split('\n');
 
@@ -80,10 +86,10 @@ module.exports = function(code, opt) {
     if (debug) console.log(n + 1, indent, tab, prevIndent.indent);
 
     if (remainedInput.match(/\w+\(.+(,|\s).*\)/)) {
-      if(debug) console.log('antes =>', remainedInput);
+      if (debug) console.log('antes =>', remainedInput);
       if (remainedInput.match(/\w+=('|").+('|")\s?,\s/)) {
         remainedInput = remainedInput.replace(/('|")(,\s+)(([\w-]+=("|'))|$)/g, '$1' + separator + '$4');
-      if(debug) console.log('new('+separator+')=>',remainedInput);
+        if (debug) console.log('new(' + separator + ')=>', remainedInput);
       }
     }
 

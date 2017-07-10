@@ -77,4 +77,20 @@ describe('pugBeautify', function() {
     var after = fs.readFileSync(after_file_name, ENC);
     assert.equal(after, pugBeautify(before, option));
   });
+
+  it('should work when fill_tab=false,omit_div=false,tab_size=2,separator_space:false,omit_empty_lines:flase', function() {
+    var option = {
+      fill_tab: false,
+      omit_div: true,
+      tab_size: 2,
+      separator_space: true,
+      omit_empty_lines: false
+    };
+    var after_file_name = './test/after/test_false_true_2_space_false.jade';
+
+    var before = fs.readFileSync(before_file_name, ENC);
+    var after = fs.readFileSync(after_file_name, ENC);
+    assert.equal(after, pugBeautify(before, option));
+  });
+
 });
