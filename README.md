@@ -16,6 +16,7 @@ npm run test
 * omit_div - boolean, whether omit 'div' tag, default false.
 * tab_size - number, when 'fill_tab' is false, fill 'tab_size' spaces, default 4.
 * separator_space - boolean, When 'separator_space' is true, the attribute separator is comma, default true.
+* omit_empty_lines - When 'separator_space' is false, delete line blank, default true.
 
 ## How to use
 ```javascript
