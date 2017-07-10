@@ -1,7 +1,7 @@
 extends ../layout/basiclayout
 
 block append stylesheets
-  link(rel='stylesheet', href='/bower_components/bootstrap-table/dist/bootstrap-table.css')
+  link(rel='stylesheet' href='/bower_components/bootstrap-table/dist/bootstrap-table.css')
   style.
     .sample_id {
       color: #337AB7;
@@ -9,15 +9,15 @@ block append stylesheets
     }
 
 block content
-  div.container
-    div.col-lg-10
+  .container
+    .col-lg-10
       // Comment
-      div.page-header 
+      .page-header 
         h1 Sample Anaysis
           small  Find a sample
-          input(name="",  ng-model="{{ 'asd', aasd}}", type="text")
+          input(name="" ng-model="{{ 'asd', aasd}}" type="text")
       div
-        div#toolbar
+        #toolbar
         p ({{ 'asd', aasd}})
         table#table
 

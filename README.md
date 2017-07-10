@@ -15,13 +15,14 @@ npm run test
 * fill_tab - boolean, fill whether tab or space, default true.
 * omit_div - boolean, whether omit 'div' tag, default false.
 * tab_size - number, when 'fill_tab' is false, fill 'tab_size' spaces, default 4.
+* separator_space - boolean, When 'separator_space' is true, the attribute separator is comma, default true.
 
 ## How to use
 ```javascript
 var output = pugBeautify(code);
 ```
 ```javascript
-var output = pugBeautify(code,{fill_tab:true,omit_div:false,tab_size:4});
+var output = pugBeautify(code,{fill_tab:true,omit_div:false,tab_size:4,separator_space:true});
 ```
 
 ## Example code
@@ -32,7 +33,8 @@ var code = fs.readFileSync('sample.jade','utf8');
 var option = {
     fill_tab: true,
     omit_div: false,
-    tab_size: 4
+    tab_size: 4,
+    separator_space: true
 };
 try {
     var output = pugBeautify(code,option);
