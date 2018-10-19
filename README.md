@@ -23,7 +23,12 @@ npm run test
 var output = pugBeautify(code);
 ```
 ```javascript
-var output = pugBeautify(code,{fill_tab:true,omit_div:false,tab_size:4,separator_space:true});
+var output = pugBeautify(code,{
+    fill_tab:true,
+    omit_div:false,
+    tab_size:4,
+    separator_space:true,
+});
 ```
 
 ## Example code
